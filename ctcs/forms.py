@@ -5,7 +5,13 @@ class RegTime(forms.ModelForm):
     class Meta:
         model = models.Ctcs
         fields = ['Registration_year', 'Registration_semeter']
+
 class Major(forms.ModelForm):
     class Meta:
         model = models.Ctcs
         fields = ['major']
+
+class CT(forms.ModelForm):
+    class Meta:
+        model = models.CoursesTaken
+        fields = ['Course_number']

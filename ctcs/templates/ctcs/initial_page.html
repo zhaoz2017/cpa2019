@@ -1,0 +1,19 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+  <h1>Fill up your basic information</h1>
+  <h2>Your registration year</h2>
+  <form class="site-form" action="index.html" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Confirm">
+  </form>
+  <h2>Choose your major</h2>
+  <form class="site-form" action="index.html" method="post">
+    {% csrf_token %}
+    {{form1}}
+    <input type="submit" value="Confirm">
+  </form>
+  <h2>Choose courses you have taken</h2>
+  <h3>CSE core courses</h3>
+  <h3>Elective courses</h3>
+{% endblock %}

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'account',
     'profiles',
     'ctcs',
+    'ctcs2',
+    # choose taken courses
 ]
 
 MIDDLEWARE = [

@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'profiles',
+    # choose taken courses
     'ctcs',
     'ctcs2',
-    # choose taken courses
+    'semplan',
+
 ]
 
 MIDDLEWARE = [

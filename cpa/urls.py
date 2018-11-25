@@ -26,6 +26,8 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('profiles/', include('profiles.urls')),
     path('ctcs/', include('ctcs.urls')),
+    path('ctcs2/', include('ctcs2.urls')),
+    path('semplan/', include('semplan.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

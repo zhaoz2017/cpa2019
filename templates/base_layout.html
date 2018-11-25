@@ -1,34 +1,70 @@
 {% load static from staticfiles %}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Course Planning Assistant</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
   </head>
+
   <body>
-    <header class="wrapper">
-      <h1>Course Planning Assistant</h1>
-      <nav>
-        <ul>
-          {% if user.is_authenticated %}
-            <li>
-              <form class="logout-link" action="{% url 'account:logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">logout</button>
-              </form>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Course Planning Assistant</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-          {% else %}
-            <li><a href="{% url 'account:login' %}">Login</a></li>
-            <li><a href="{% url 'account:signup' %}">Signup</a></li>
-          {% endif %}
-        </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Program Plan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Semester Plan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Faculty Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Profile</a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header>
-    <div class="wrapper">
-      {% block content %}
-      {% endblock %}
-    </div>
 
+    <main role="main">
+
+      <section class="jumbotron text-left">
+        <div class="container">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container text-center">
+        <p>&copy; Course Planning Assistant 2018</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>

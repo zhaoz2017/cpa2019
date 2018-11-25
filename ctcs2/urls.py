@@ -5,6 +5,6 @@ app_name = 'ctcs2'
 
 urlpatterns = [
     path('', views.initial_page),
-    path('submit/', views.submit, name="submit"),
-    path('success/', views.success, name="success"),
+    # path('submit/', views.submit, name="submit"),
+    # path('success/', views.success, name="success"),
 ]

@@ -1,0 +1,394 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<!-- <h1>Fill up your basic information</h1>
+<h2>Your registration year and major</h2>
+<form class="site-form" action="{% url 'ctcs:submit' %}" method="post">
+{% csrf_token %}
+{{form}}
+<input type="submit" value="Confirm">
+</form> -->
+
+<div class="row">
+  <!-- <form> -->
+    <div class="col-sm-6">
+      <h1>Core Courses</h1>
+      <div class="card" style="width: 33rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+              <label class="form-check-label" for="inlineCheckbox1">COM 1001: Composition and Rhetoric</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 1001: Fundamentals of Software Development 1</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 1101: Computing Disciplines and Careers 1</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 1400: Applied Discrete Mathematics</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+              <label class="form-check-label" for="inlineCheckbox1">FYE 1000: University Experience</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option6">
+              <label class="form-check-label" for="inlineCheckbox1">MTH XXX1: Calculus 1</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option7">
+              <label class="form-check-label" for="inlineCheckbox1">COM 1102: Writing About Literature</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox8" value="option8">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 1002: Fundamentals of Software Development 2</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox9" value="option9">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 2120: Computer Organization and Machine Programming</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox10" value="option10">
+              <label class="form-check-label" for="inlineCheckbox1">MTH XXX2: Calculus 2</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox11" value="option11">
+              <label class="form-check-label" for="inlineCheckbox1">COM 2223: Scientific and Technical Communication</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox12" value="option12">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 2010: Algorithms and Data Structures</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox13" value="option13">
+              <label class="form-check-label" for="inlineCheckbox1">HUM XXX1: Humanities Core Course 1</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox14" value="option14">
+              <label class="form-check-label" for="inlineCheckbox1">HUM XXX2: Humanities Core Course 2</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox15" value="option15">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 2050: Programming in a Second Language</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox16" value="option16">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 2400: Applied Statistics</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox17" value="option17">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 2410: Introduction to Software Engineering</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox18" value="option18">
+              <label class="form-check-label" for="inlineCheckbox1">MTH 3102: Introduction to Linear Algebra</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox19" value="option19">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4001: Operating Systems Concepts</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox20" value="option20">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4250: Programming Language Concepts</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox21" value="option21">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 3100: Junior Project</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox22" value="option22">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 3120: Computer Architecture and Assembly Programming</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox23" value="option23">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 3231: Computer Networks</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox24" value="option24">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4083: Formal Languages and Automata Theory</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox25" value="option25">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4081: Introduction to Analysis of Algorithms</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox26" value="option26">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4101: Computer Science Projects 1</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox27" value="option27">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4301: Introduction to Artificial Intelligence</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox28" value="option28">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4102: Computer Science Projects 2</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox29" value="option29">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4232: Computer Network Programming</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox30" value="option30">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4251: Compiler Theory</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <h1>Elective Courses</h1>
+      <div class="card" style="width: 33rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+              <label class="form-check-label" for="inlineCheckbox1">COM 1001: Composition and Rhetoric</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 1001: Fundamentals of Software Development 1</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 1101: Computing Disciplines and Careers 1</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 1400: Applied Discrete Mathematics</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+              <label class="form-check-label" for="inlineCheckbox1">FYE 1000: University Experience</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option6">
+              <label class="form-check-label" for="inlineCheckbox1">MTH XXX1: Calculus 1</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option7">
+              <label class="form-check-label" for="inlineCheckbox1">COM 1102: Writing About Literature</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox8" value="option8">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 1002: Fundamentals of Software Development 2</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox9" value="option9">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 2120: Computer Organization and Machine Programming</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox10" value="option10">
+              <label class="form-check-label" for="inlineCheckbox1">MTH XXX2: Calculus 2</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox11" value="option11">
+              <label class="form-check-label" for="inlineCheckbox1">COM 2223: Scientific and Technical Communication</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox12" value="option12">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 2010: Algorithms and Data Structures</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox13" value="option13">
+              <label class="form-check-label" for="inlineCheckbox1">HUM XXX1: Humanities Core Course 1</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox14" value="option14">
+              <label class="form-check-label" for="inlineCheckbox1">HUM XXX2: Humanities Core Course 2</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox15" value="option15">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 2050: Programming in a Second Language</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox16" value="option16">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 2400: Applied Statistics</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox17" value="option17">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 2410: Introduction to Software Engineering</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox18" value="option18">
+              <label class="form-check-label" for="inlineCheckbox1">MTH 3102: Introduction to Linear Algebra</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox19" value="option19">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4001: Operating Systems Concepts</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox20" value="option20">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4250: Programming Language Concepts</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox21" value="option21">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 3100: Junior Project</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox22" value="option22">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 3120: Computer Architecture and Assembly Programming</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox23" value="option23">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 3231: Computer Networks</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox24" value="option24">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4083: Formal Languages and Automata Theory</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox25" value="option25">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4081: Introduction to Analysis of Algorithms</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox26" value="option26">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4101: Computer Science Projects 1</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox27" value="option27">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4301: Introduction to Artificial Intelligence</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox28" value="option28">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4102: Computer Science Projects 2</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox29" value="option29">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4232: Computer Network Programming</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox30" value="option30">
+              <label class="form-check-label" for="inlineCheckbox1">CSE 4251: Compiler Theory</label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  <!-- </form> -->
+</div>
+<!-- <h2>Choose courses you have taken</h2>
+<h3>CSE core courses</h3>
+<h3>Elective courses</h3> -->
+{% endblock %}

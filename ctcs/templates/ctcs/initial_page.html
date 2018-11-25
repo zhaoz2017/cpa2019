@@ -1,12 +1,88 @@
 {% extends 'base_layout.html' %}
 {% block content %}
-  <h1>Fill up your basic information</h1>
+  <!-- <h1>Fill up your basic information</h1>
   <h2>Your registration year and major</h2>
   <form class="site-form" action="{% url 'ctcs:submit' %}" method="post">
     {% csrf_token %}
     {{form}}
     <input type="submit" value="Confirm">
-  </form>
+  </form> -->
+
+  <!-- <form>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Your Registration Year</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>2018</option>
+      <option>2017</option>
+      <option>2016</option>
+      <option>2015</option>
+      <option>2014</option>
+    </select>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+    <label class="form-check-label" for="exampleRadios1">
+      Fall
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+    <label class="form-check-label" for="exampleRadios2">
+      Spring
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Choose Your Major</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>Computer Science</option>
+      <option>Software Engineering</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Next Page</button>
+</form> -->
+<title>Step 1 | Course Planning Assistant</title>
+<form>
+  <div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Your Registration Year</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>2018</option>
+            <option>2017</option>
+            <option>2016</option>
+            <option>2015</option>
+            <option>2014</option>
+          </select>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            Fall
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+          <label class="form-check-label" for="exampleRadios2">
+            Spring
+          </label>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Choose Your Major</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>Computer Science</option>
+            <option>Software Engineering</option>
+          </select>
+        </div>
+      </li>
+      <button type="submit" class="btn btn-primary">Next Page</button>
+    </ul>
+  </div>
+</form>
   <!-- <h2>Choose courses you have taken</h2>
   <h3>CSE core courses</h3>
   <h3>Elective courses</h3> -->

@@ -1,6 +1,7 @@
 {% extends 'base_layout.html' %}
 <!DOCTYPE html>
 {% block content %}
+<title>Profile | Course Planning Assistant</title>
 <div class="card" style="width: 24rem;">
   {% for profile in profiles.all%}
   <img class="card-img-top" src="{{profile.image.url}}" alt="Card image cap">

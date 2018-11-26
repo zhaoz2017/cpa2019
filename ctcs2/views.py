@@ -5,5 +5,5 @@ from .import forms
 
 # Create your views here.
 # @login_required(login_url="/account/login/")
-def initial_page(request):
+def initial_page2(request):
     return render(request, 'ctcs2/courses.html')

@@ -3,12 +3,12 @@
 {% block content %}
 <title>Profile | Course Planning Assistant</title>
 <div class="card" style="width: 24rem;">
-  {% for profile in profiles.all%}
+  {% for profile in profiles.all %}
   <img class="card-img-top" src="{{profile.image.url}}" alt="Card image cap">
   {% endfor %}
   <div class="card-body">
     <ul class="list-group list-group-flush">
-      {% for profile in profiles.all%}
+      {% for profile in profiles.all %}
       <li class="list-group-item">
         <td>First Name:</td>
         <td>{{profile.first_name}}</td>

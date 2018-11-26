@@ -1,130 +1,138 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+<head>
+  {% load staticfiles %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Home | Course Planning Assistant</title>
+  <title>Home | Course Planning Assistant</title>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Course Planning Assistant</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Program Plan</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Semester Plan</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Faculty Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="{% url 'home' %}">Course Planning Assistant</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <!-- <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">Program Plan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Semester Plan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Faculty Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'profiles' %}">Profile</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
 
-    <main role="main">
+<main role="main">
 
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Hello, Zilong!</h1>
-          <p class="lead text-muted">This project will aid students in planning their class schedules at Florida Tech effectively, so they may graduate in a timely manner. Given the students’ personal combination of completed courses for their major and the degree plan offered to incoming freshmen of the same major, the system will present the user with possibilities effective for staying on track to graduate on time. Through the experience of other users, the system can learn more about student options and provide this knowledge to new students.</p>
-          <p>
-            <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a> -->
-            <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
-          </p>
-        </div>
-      </section>
+  <section class="jumbotron text-center">
+    <div class="container">
+      {% for profile in profiles.all %}
+      <h1 class="jumbotron-heading">Welcome, {{profile.first_name}}!</h1>
+      {% endfor %}
+      <br>
+      <br>
+      <p class="lead text-muted">This project will aid students in planning their class schedules at Florida Tech effectively, so they may graduate in a timely manner. Given the students’ personal combination of completed courses for their major and the degree plan offered to incoming freshmen of the same major, the system will present the user with possibilities effective for staying on track to graduate on time. Through the experience of other users, the system can learn more about student options and provide this knowledge to new students.</p>
+      <p>
+        <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a> -->
+        <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
+      </p>
+    </div>
+  </section>
 
-      <!-- Class taking -->
-      <!-- Class taking -->
-      <!-- Class taking -->
-      <div class="album py-5 bg-light">
-        <div class="container">
-            <!-- {% for course in courses %} -->
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
+  <!-- Class taking -->
+  <!-- Class taking -->
+  <!-- Class taking -->
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <!-- {% for course in courses %} -->
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
               </div>
-            </div>
-            <!-- {% endfor %} -->
-          </div>
-          <!-- Features -->
-          <!-- Features -->
-          <!-- Features -->
-          <div class="card-deck">
-            <div class="card border-primary mb-3">
-              <img class="card-img-top" src="https://farm5.staticflickr.com/4860/32180715238_1b5b45188c_m.jpg" alt="Card image cap">
-              <div class="card-body text-primary">
-                <h5 class="card-title">Program Plan</h5>
-                <p class="card-text">Creates a customized degree plan for the user based on the typical degree program path and the credits that the user already has acquired. Classes that the user have taken will be shown in green, classes that are being taken are shown in yellow, and classes that will need to be taken are shown in red.</p>
-                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-              </div>
-            </div>
-            <div class="card border-primary mb-3">
-              <img class="card-img-top" src="https://farm5.staticflickr.com/4886/44236015720_02bef79f83_m.jpg" alt="Card image cap">
-              <div class="card-body text-primary">
-                <h5 class="card-title">Semester Plan</h5>
-                <p class="card-text">Helps the user to create a plan for the next semester based on factors such as classes available, accomplished prerequisites, student schedule preferences, and student class preferences. Given available classes are based on the created degree plan and does not include irrelevant electives or overly broad required electives (e.g. science or math).</p>
-              </div>
-            </div>
-            <div class="card border-primary mb-3">
-              <img class="card-img-top" src="https://farm5.staticflickr.com/4848/45139881705_633b9eb192_m.jpg" alt="Card image cap">
-              <div class="card-body text-primary">
-                <h5 class="card-title">Falculty Contact</h5>
-                <p class="card-text">If an issue occurs with degree planning and/or semester planning that the system cannot resolve, it will give relevant contact details to the user for speaking with faculty that could help fix the issue. Such issues might include prerequisite waiving, corequisite waiving, graduate courses, and other possible issues with registration.</p>
-              </div>
+              <small class="text-muted">9 mins</small>
             </div>
           </div>
         </div>
-
-
-
       </div>
+      <!-- {% endfor %} -->
 
-    </main>
-
-    <footer class="text-muted">
-      <div class="container text-center">
-        <p>&copy; Course Planning Assistant 2018</p>
+      <!-- Features -->
+      <!-- Features -->
+      <!-- Features -->
+      <h1 class="display-4 text-center">Our Features</h1>
+      <br>
+      <br>
+      <div class="card-deck">
+        <div class="card mb-3">
+          <img class="card-img-top" src="{% static 'programplan.png' %}" alt="Card image cap">
+          <div class="card-body text-primary">
+            <h5 class="card-title">Program Plan</h5>
+            <p class="card-text">Creates a customized degree plan for the user based on the typical degree program path and the credits that the user already has acquired. Classes that the user have taken will be shown in green, classes that are being taken are shown in yellow, and classes that will need to be taken are shown in red.</p>
+            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          </div>
+        </div>
+        <div class="card mb-3">
+          <img class="card-img-top" src="{% static 'semesterplan.png' %}" alt="Card image cap">
+          <div class="card-body text-primary">
+            <h5 class="card-title">Semester Plan</h5>
+            <p class="card-text">Helps the user to create a plan for the next semester based on factors such as classes available, accomplished prerequisites, student schedule preferences, and student class preferences. Given available classes are based on the created degree plan and does not include irrelevant electives or overly broad required electives (e.g. science or math).</p>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <img class="card-img-top" src="{% static 'facultycontact.png' %}" alt="Card image cap">
+          <div class="card-body text-primary">
+            <h5 class="card-title">Falculty Contact</h5>
+            <p class="card-text">If an issue occurs with degree planning and/or semester planning that the system cannot resolve, it will give relevant contact details to the user for speaking with faculty that could help fix the issue. Such issues might include prerequisite waiving, corequisite waiving, graduate courses, and other possible issues with registration.</p>
+          </div>
+        </div>
       </div>
-    </footer>
+    </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="text-muted">
+  <div class="container text-center">
+    <p>&copy; Course Planning Assistant 2018</p>
+  </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
 </html>

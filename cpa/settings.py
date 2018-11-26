@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'cpa.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cpadb',
+        'NAME': 'cpadb1',
         'USER': 'postgres',
         'PASSWORD': '12#qweasd',
         'HOST': 'localhost',

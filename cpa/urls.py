@@ -12,4 +12,5 @@ urlpatterns = [
     path('ctcs/', include('ctcs.urls')),
     path('ctcs2/', include('ctcs2.urls')),
     path('semplan/', include('semplan.urls')),
+    path('facul/', include('faculty.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

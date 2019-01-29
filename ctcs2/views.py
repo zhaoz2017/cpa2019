@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from .models import Ctcs2
 # from django.contrib.auth.decorators import login_required
 from .import forms

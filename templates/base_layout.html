@@ -22,7 +22,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="#">Program Plan</a>
             </li>
@@ -32,9 +32,27 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'faculties' %}">Faculty Contact</a>
             </li>
+          </ul>
+            <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'profiles' %}">Profile</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}" onclick="">Logout</a>
+              <form id="logout" method="POST" action="{% url 'account:logout' %}">
+                {% csrf_token %}
+                <input type="hidden" />
+              </form>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account:signup' %}">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account:login' %}">Login</a>
+            </li>
+            {% endif %}
           </ul>
         </div>
       </nav>
@@ -42,18 +60,18 @@
 
     <main role="main">
 
-      <section class="jumbotron text-left">
-        <div class="container">
+      <section class="jumbotron text-center">
+        <!-- <div class="container"> -->
           {% block content %}
           {% endblock %}
-        </div>
+        <!-- </div> -->
       </section>
 
     </main>
 
     <footer class="text-muted">
       <div class="container text-center">
-        <p>&copy; Course Planning Assistant 2018</p>
+        <p>&copy; Course Planning Assistant 2019</p>
       </div>
     </footer>
 

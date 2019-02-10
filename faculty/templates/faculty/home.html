@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+{% for solution in solutions.all %}
+<div class="row pt-3">
+  <div class="col-6" onclick="window.location='{% url 'detail' solution.id %}';" style="cursor: pointer;">
+    <h4>{{ solution.title }}</h4>
+  </div>
+  <div class="col-6" onclick="window.location='{% url 'detail' solution.id %}';" style="cursor: pointer;">
+    <h4>{{ solution.publisher.username }}</h4>
+    <h4>{{ solution.pub_date_pretty }}</h4>
+  </div>
+  <div class="col-4">
+    <a href="javascript:{document.getElementById('upvote{{ solution.id }}').submit()}"><button class="btn btn-primary btn-lg btn-block"><span class="oi oi-caret-top"></span> Upvote {{ solution.votes_total }}</button></a>
+  </div>
+</div>
+
+<form id="upvote{{ solution.id }}" method="POST" action="{% url 'upvote' solution.id %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+{% endfor %}
+
+{% endblock %}

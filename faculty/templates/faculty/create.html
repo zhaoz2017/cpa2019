@@ -1,0 +1,32 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+{% if error %}
+{{ error }}
+<br />
+<br />
+{% endif %}
+<section class="jumbotron text-left">
+<h1>Create</h1>
+
+<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+{% csrf_token %}
+Title:
+<br />
+<input type="text" name="title" />
+<br />
+Problem:
+<br />
+<input type="textbox" name="body_q" />
+<br />
+Solution:
+<br />
+<input type="textbox" name="body_a" />
+<br />
+<br />
+<input class="btn btn-primary" type="submit" value="Add Solution" />
+</form>
+</section>
+
+{% endblock %}

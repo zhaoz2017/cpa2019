@@ -9,7 +9,6 @@
 {% endif %}
 <section class="jumbotron text-left">
 <h1>Create</h1>
-
 <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
 {% csrf_token %}
 Title:

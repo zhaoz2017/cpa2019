@@ -13,4 +13,5 @@ urlpatterns = [
     path('ctcs2/', include('ctcs2.urls')),
     path('semplan/', include('semplan.urls')),
     path('faculty/', include('faculty.urls')),
+    path('auth/', include('social_django.urls', namespace='social')), # Google and Github OAuth
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

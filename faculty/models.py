@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 # Create your models here.
 class Solution(models.Model):
@@ -18,3 +19,13 @@ class Solution(models.Model):
 
     def pub_date_pretty(self):
         return self.pub_date.strftime('%b %e %Y')
+
+class Professor(models.Model):
+		first = models.CharField(max_length=50)
+		last = models.CharField(max_length=50)
+		email = models.EmailField(max_length=50)
+		website = models.CharField(max_length=50)
+
+
+		def __str__(self): #__unicode__(self):
+			return "{} {} {} {}".format(self.first, self.last, self.email, self.website)

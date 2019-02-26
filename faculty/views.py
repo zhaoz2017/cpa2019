@@ -1,21 +1,43 @@
+# from django.shortcuts import render, redirect, get_object_or_404
+# from django.contrib.auth.decorators import login_required
+# from .models import Solution
+# from django.utils import timezone
+# import requests
+# import json
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Solution
-from django.utils import timezone
 import requests
+from .models import  *
+from django.utils import timezone
+from django.contrib import messages
+from django.db.models import Q
+import faculty
 import json
 
-# Create your views here.
 def faculty_page(request):
-    response = requests.get('http://api.fit.edu/directory/v3/departments/13601/employees')
-    data = response.json()
-    return render(request, 'faculty/faculty_page.html', {
-        'first_name': data['records'][0]['name']['first'],
-        'last_name': data['records'][0]['name']['last'],
-        'email': data['records'][0]['email'],
-    })
+    url = 'http://api.fit.edu/directory/v3/employees'
+    if 'name' in request.GET:
+        last = request.GET.get('name')
+        url = 'http://api.fit.edu/directory/v3/employees?query=%s' % last
 
-def home(request):
+    response = requests.get(url)
+    data = response.json()
+
+    return render(request, 'faculty/faculty_page.html', { 'data':data})
+
+# Create your views here.
+# def faculty_page(request):
+#     response = requests.get('http://api.fit.edu/directory/v3/departments/13601/employees')
+#     data = response.json()
+#     return render(request, 'faculty/faculty_page.html', {
+#         'data': data,
+#         'first_name': data['records'][0]['name']['first'],
+#         'last_name': data['records'][0]['name']['last'],
+#         'email': data['records'][0]['email'],
+#     })
+
+def shome(request):
     solutions = Solution.objects
     return render(request, 'faculty/home.html',{'solutions':solutions})
 

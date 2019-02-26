@@ -2,105 +2,41 @@
 {% block content %}
 
 <title>Faculty Contact | Course Planning Assistant</title>
+
+
+<!-- The form -->
 <div class="row pt-2 pb-4">
   <div class="col-4">
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0" method="GET">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="name">
       <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
-  <div class="col-8 text-right">
-    <a href="{% url 'home' %}"><i class="fas fa-comment-alt"></i></a>
-    <a>        </a>
-    <a href="{% url 'create' %}"><i class="fas fa-plus"></i></a>
 
+  <div class="col-6">
+  </div>
+
+  <div class="col-1 text-right">
+    <a href="{% url 'shome' %}"><h2><i class="fas fa-comment-alt"></i></h2></a>
+  </div>
+
+  <div class="col-1 text-left">
+    <a href="{% url 'create' %}"><h2><i class="fas fa-plus"></i></h2></a>
   </div>
 </div>
 
-<!-- second row -->
-<!-- second row -->
-<!-- second row -->
-<div class="card-deck">
-
-  <div class="card">
-    <ul class="list-group">
-      <li class="list-group-item active">{{ first_name }} {{ last_name }}</li>
-      <li class="list-group-item"><a href='mailto:{{ email }}'>{{ email }}</a></li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
+{%for person in data.records %}
+  <div class="card-deck col-3 pt-3">
+    <div class="card">
+      <ul class="list-group">
+        <li class="list-group-item active">{{ person.name.first }} {{person.name.last}}</li>
+        <li class="list-group-item"><a href='mailto:{{ person.email }}'>{{ person.email }}</a></li>
+        <li class="list-group-item"><a href='{{ person.profile.url }}'>{{ person.profile.url }}</a></li>
+      </ul>
+    </div>
   </div>
-
-  <div class="card">
-    <ul class="list-group">
-      <li class="list-group-item active">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
-  </div>
-  <div class="card">
-    <ul class="list-group">
-      <li class="list-group-item active">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
-  </div>
-  <div class="card">
-    <ul class="list-group">
-      <li class="list-group-item active">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
-  </div>
-
-</div>
-<br>
-<br>
-<!-- first row -->
-<!-- first row -->
-<!-- first row -->
-<div class="card-deck">
-
-  <div class="card">
-    <ul class="list-group">
-      <li class="list-group-item active">William W. Arrasmith</li>
-    </ul>
-  </div>
-  <div class="card">
-    <ul class="list-group">
-      <li class="list-group-item active">Marco Carvalho</li>
-      <li class="list-group-item"><a href='mailto:mcarvalho@fit.edu'>mcarvalho@fit.edu</a></li>
-      <li class="list-group-item">F.W. Olin Engineering Complex, 338</li>
-      <li class="list-group-item"><a href='https://www.fit.edu/faculty-profiles/5/marco-carvalho/?tracks=mcarvalho'>Faculty Page</a></li>
-    </ul>
-  </div>
-  <div class="card">
-    <ul class="list-group">
-      <li class="list-group-item active">Samuel P.  Kozaitis</li>
-      <li class="list-group-item"><a href='mailto:kozaitis@fit.edu'>kozaitis@fit.edu</a></li>
-      <li class="list-group-item">F.W. Olin Engineering Complex, 348</li>
-      <li class="list-group-item"><a href='https://www.fit.edu/faculty-profiles/5/samuel-kozaitis/?tracks=kozaitis'>Faculty Page</a></li>
-    </ul>
-  </div>
-  <div class="card">
-    <ul class="list-group">
-      <li class="list-group-item active">Brian A. Lail</li>
-      <li class="list-group-item"><a href='mailto:blail@fit.edu'>blail@fit.edu</a></li>
-      <li class="list-group-item">F.W. Olin Engineering Complex, 350 </li>
-      <li class="list-group-item"><a href='https://www.fit.edu/faculty-profiles/2/brian-lail/?tracks=blail'>Faculty Page</a></li>
-    </ul>
-  </div>
-
-</div>
-<br>
-<br>
-
+{% endfor %}
+  <br>
+  <br>
 
 {% endblock %}

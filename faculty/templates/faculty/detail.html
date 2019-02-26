@@ -1,31 +1,41 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
+<section class="jumbotron text-left">
 
-<div class="row">
+<div class="row pb-5">
   <div class="col-12">
     <h1>{{ solution.title }}</h1>
   </div>
 </div>
 
 <div class="row pt-2">
+  <div class="col-1">
+
+  </div>
   <div class="col-4">
     <h4>Published by {{ solution.publisher.username }}</h4>
   </div>
-  <div class="col-4 text-right">
+  <div class="col-3 text-right">
     <h4>{{ solution.pub_date_pretty }}</h4>
   </div>
 </div>
-<div class="row">
-  <div class="col-8">
+<div class="row pt-2">
+  <div class="col-1 text-right">
+    <h1><i class="fas fa-question"></i></h1>
+  </div>
+  <div class="col-7">
     <p>{{ solution.body_q }}</p>
   </div>
   <div class="col-4">
     <a href="javascript:{document.getElementById('upvote').submit()}"><button class="btn btn-primary btn-lg btn-block">Upvote {{ solution.votes_total }}</button></a>
   </div>
 </div>
-<div class="row">
-  <div class="col-8">
+<div class="row pt-2">
+  <div class="col-1 text-right">
+    <h1><i class="fas fa-lightbulb"></i></h1>
+  </div>
+  <div class="col-7">
     <p>{{ solution.body_a }}</p>
   </div>
 </div>
@@ -35,4 +45,5 @@
   <input type="hidden">
 </form>
 
+</section>
 {% endblock %}

@@ -14,9 +14,8 @@ def submit(request):
         form = forms.RegInfo(request.POST)
         if form.is_valid():
             ctcs = form.save()
-            return redirect('ctcs:success')
-
-    return redirect('ctcs')
+            return redirect('ctcs2:steptwo')
+    return redirect('ctcs2:steptwo')
 
 def success(request):
     return HttpResponse("success")

@@ -46,7 +46,8 @@
   <p class="lead">Fill out your registration infomation.</p>
   <hr class="my-1">
 </div>
-<form>
+<form class="site-form" action="{% url 'ctcs2:steptwo' %}" method="post">
+  {% csrf_token %}
   <div class="card" style="width: 18rem;">
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
@@ -61,7 +62,7 @@
           </select>
         </div>
       </li>
-      <li class="list-group-item">
+      <li class="list-group-item text-left">
         <div class="form-check">
           <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
           <label class="form-check-label" for="exampleRadios1">
@@ -84,7 +85,7 @@
           </select>
         </div>
       </li>
-      <button href=" {% url 'steptwo' %}" type="submit" class="btn btn-primary">Next Page</button>
+      <button type="submit" class="btn btn-primary">Next Page</button>
     </ul>
   </div>
 </form>

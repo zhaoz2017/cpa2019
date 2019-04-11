@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def progplan(request):
+    return render(request, 'progplan/progplan.html')

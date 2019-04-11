@@ -1,9 +1,127 @@
 {% extends 'base_layout.html' %}
 {% block content %}
 
-<title>Faculty Contact | Course Planning Assistant</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+  <h2>Semester Plan Search</h2>
+
+  <form>
+    <b>Title:</b><br>
+    <input type="text" name="q" placeholder="Enter Keyword(s)."><br>
+    <b>Subject:</b><br>
+    <input type="text" name="s" placeholder="Enter Subject."><br>
+    <b>Course Number:</b><br>
+    <input type="text" name="n" placeholder="Enter Course Number."><br>
+    <b>Professor:</b><br>
+    <input type="text" name="p" placeholder="Enter Name."><br>
+    <br>
+    <b>Time Period:</b><br>
+    From: <input type="text" name="bt" placeholder="Enter Begin Time."> To: <input type="text" name="et" placeholder="Enter End Time."><br><br>
+    <b>Preselected Times:</b><br>
+    <input type="radio" name="time" id="0" value="0">Morning (0800 - 1200)<br>
+    <input type="radio" name="time" id="1" value="1">Afternoon (1200 - 1700)<br>
+    <input type="radio" name="time" id="2" value="2">Evening (1700 - 2100)<br>
+    <br><b>Days:</b><br>
+    <input type="checkbox" name="M" value="M">Monday
+    <input type="checkbox" name="T" value="T">Tuesday
+    <input type="checkbox" name="W" value="W">Wednesday
+    <input type="checkbox" name="R" value="R">Thursday
+    <input type="checkbox" name="F" value="F">Friday
+    <input type="checkbox" name="Sat" value="S">Saturday
+    <input type="checkbox" name="U" value="U">Sunday<br><br>
+    <input type="submit" value="Search">
+  </form>
+  <!--
+  <h4>Search Between Two Times</h4>
+  <form method="GET" action="">
+    {% csrf_token %}
+    <div class="form-group">
+      <div class="col-lg-4">
+    <input type="text" name="bt" class="form-control"  value="{{ bt }}" placeholder="Enter Begin Time."
+      <label class="col-lg-2">
+      <div class="col-lg-4">
+    <input type="text" name="et" class="form-control"  value="{{ et }}" placeholder="Enter End Time."
+      </div>
+      <label class="col-lg-2">
+        <button type="submit" class="btn btn-danger">Search</button>
+      </label>
+    </div>
+  </form> -->
+  <div>
+    {% if messages %}
+      <ul class="messages">
+        {% for i in messages %}
+          <li style="color: red">{{ i }}</li>
+        {% endfor %}
+    {% endif %}
+  </div><br>
 
 
 
+<form>
+  <table class="table table-bordered">
+    <thread>
+      <tr>
+        <th>Save</th>
+        <th>CRN</th>
+        <th>Course Subject</th>
+        <th>Course Number</th>
+        <th>Title</th>
+        <th>Section</th>
+        <th>Instructor</th>
+        <th>Credit Hours</th>
+        <th>Semester</th>
+        <th>Actual/Max Enroll</th>
+        <th>Building</th>
+        <th>Room</th>
+        <th>Time</th>
+        <th>Days</th>
 
+      </tr>
+    </thread>
+    <tbody>
+      {%for class in list %}
+        <tr>
+          <td><input type="radio" name="saved" id=class.0 value=class.0</td>
+          <td>{{ class.0 }}</td>
+          <td>{{ class.1 }}</td>
+          <td>{{ class.2 }}</td>
+          <td>{{ class.3 }}</td>
+          <td>{{ class.4 }}</td>
+          <td>{{ class.5 }}</td>
+          <td>{{ class.6 }}</td>
+          <td>{{ class.7 }}</td>
+          <td>{{ class.9 }} / {{ class.8 }}</td>
+          <td>{{ class.10 }}</td>
+          <td>{{ class.11 }}</td>
+          <td>{{ class.12 }} - {{ class.13 }}</td>
+          <td>{{ class.14 }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <input type="submit" value="Add Class to Schedule">
+</form>
+
+  {% if list.has_other_pages %}
+    <ul class="pagination">
+      {% if list.has_previous %}
+        <li><a href="?page={{ list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.s %}&s={{ request.GET.s }}{% endif %}{% if request.GET.n %}&n={{ request.GET.n }}{% endif %}{% if request.GET.p %}&p={{ request.GET.p }}{% endif %}{% if request.GET.bt %}&bt={{ request.GET.bt }}{% endif %}{% if request.GET.et %}&et={{ request.GET.et }}{% endif %}{% if request.GET.time %}&time={{ request.GET.time }}{% endif %}{% if request.GET.M %}&M={{ request.GET.M }}{% endif %}{% if request.GET.T %}&T={{ request.GET.T }}{% endif %}{% if request.GET.W %}&W={{ request.GET.W }}{% endif %}{% if request.GET.R %}&R={{ request.GET.R }}{% if request.GET.F %}&F={{ request.GET.F }}{% endif %}{% endif %}{% if request.GET.Sat %}&Sat={{ request.GET.Sat }}{% endif %}{% if request.GET.U %}&U={{ request.GET.U }}{% endif %}">&laquo;</a></li>
+      {% else %}
+        <li class="disabled"><span>&laquo;</span></li>
+      {% endif %}
+      {% for i in list.paginator.page_range %}
+        {% if list.number == i %}
+          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% else %}
+          <!---prob here with query urls--->
+          <li><a href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.s %}&s={{ request.GET.s }}{% endif %}{% if request.GET.n %}&n={{ request.GET.n }}{% endif %}{% if request.GET.p %}&p={{ request.GET.p }}{% endif %}{% if request.GET.bt %}&bt={{ request.GET.bt }}{% endif %}{% if request.GET.et %}&et={{ request.GET.et }}{% endif %}{% if request.GET.time %}&time={{ request.GET.time }}{% endif %}{% if request.GET.M %}&M={{ request.GET.M }}{% endif %}{% if request.GET.T %}&T={{ request.GET.T }}{% endif %}{% if request.GET.W %}&W={{ request.GET.W }}{% endif %}{% if request.GET.R %}&R={{ request.GET.R }}{% endif %}{% if request.GET.F %}&F={{ request.GET.F }}{% endif %}{% if request.GET.Sat %}&Sat={{ request.GET.Sat }}{% endif %}{% if request.GET.U %}&U={{ request.GET.U }}{% endif %}">{{ i }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if list.has_next %}
+        <li><a href="?page={{ list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.s %}&s={{ request.GET.s }}{% endif %}{% if request.GET.n %}&n={{ request.GET.n }}{% endif %}{% if request.GET.p %}&p={{ request.GET.p }}{% endif %}{% if request.GET.bt %}&bt={{ request.GET.bt }}{% endif %}{% if request.GET.et %}&et={{ request.GET.et }}{% endif %}{% if request.GET.time %}&time={{ request.GET.time }}{% endif %}{% if request.GET.M %}&M={{ request.GET.M }}{% endif %}{% if request.GET.T %}&T={{ request.GET.T }}{% endif %}{% if request.GET.W %}&W={{ request.GET.W }}{% endif %}{% if request.GET.R %}&R={{ request.GET.R }}{% endif %}{% if request.GET.F %}&F={{ request.GET.F }}{% endif %}{% if request.GET.Sat %}&Sat={{ request.GET.Sat }}{% endif %}{% if request.GET.U %}&U={{ request.GET.U }}{% endif %}">&raquo;</a></li>
+      {% else %}
+        <li class="disabled"><span>&raquo;</span></li>
+      {% endif %}
+    </ul>
+  {% endif %}
 {% endblock %}

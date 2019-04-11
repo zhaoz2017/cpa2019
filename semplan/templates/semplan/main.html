@@ -1,0 +1,57 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+
+<title>Semester Planning | Course Planning Assistant</title>
+
+    <h2>Semester Planning</h2><br>
+    <h4>Hello, [User]!</h4><br>
+
+    <button onclick="window.location.href = 'http://127.0.0.1:8000/semplan/';">Go To Classes Search</button><br><br><br>
+
+    <h4>Your Schedules:</h4>
+    <div class="card-deck">
+
+      <div class="card">
+        <ul class="list-group">
+          <li class="list-group-item active">Schedule 1</li>
+          <li class="list-group-item">Class 1 Info</li>
+          <li class="list-group-item">Class 2 Info</li>
+          <li class="list-group-item">...</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul class="list-group">
+          <li class="list-group-item active">Schedule 2</li>
+          <li class="list-group-item">Class 1 Info</li>
+          <li class="list-group-item">Class 2 Info</li>
+          <li class="list-group-item">...</li>
+        </ul>
+      </div>
+
+    </div><br><br>
+
+    <div class="card-deck">
+
+      <div class="card">
+        <ul class="list-group">
+          <li class="list-group-item active">Schedule 3</li>
+          <li class="list-group-item">Class 1 Info</li>
+          <li class="list-group-item">Class 2 Info</li>
+          <li class="list-group-item">...</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul class="list-group">
+          <li class="list-group-item active">Schedule 4</li>
+          <li class="list-group-item">Class 1 Info</li>
+          <li class="list-group-item">Class 2 Info</li>
+          <li class="list-group-item">...</li>
+        </ul>
+      </div>
+
+    </div><br><br>
+
+    <button>Create New Semester Schedule</button>
+
+
+{% endblock %}

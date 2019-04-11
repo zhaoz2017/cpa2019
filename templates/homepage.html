@@ -17,7 +17,41 @@
     </div>
     <div class="album py-5 bg-light">
   {% if user.is_authenticated %}
-  <a>you are authenticated</a>
+  <div class="container">
+    <!-- Features -->
+    <!-- Features -->
+    <!-- Features -->
+    <h1 class="display-4 text-center">Our Features</h1>
+    <br>
+    <br>
+    <div class="card-deck">
+      <div class="card mb-3">
+        <img class="card-img-top" src="{% static 'programplan.png' %}" alt="Card image cap">
+        <div class="card-body text-primary">
+          <h5 class="card-title">Program Plan</h5>
+          <a href="#"><span class="badge badge-pill badge-success">Full Access</span></a>
+          <p class="card-text pt-2">Creates a customized degree plan for the user based on the typical degree program path and the credits that the user already has acquired. Classes that the user have taken will be shown in green, classes that are being taken are shown in yellow, and classes that will need to be taken are shown in red.</p>
+          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+        </div>
+      </div>
+      <div class="card mb-3">
+        <img class="card-img-top" src="{% static 'semesterplan.png' %}" alt="Card image cap">
+        <div class="card-body text-primary">
+          <h5 class="card-title">Semester Plan</h5>
+          <a href="#"><span class="badge badge-pill badge-success">Full Access</span></a>
+          <p class="card-text pt-2">Helps the user to create a plan for the next semester based on factors such as classes available, accomplished prerequisites, student schedule preferences, and student class preferences. Given available classes are based on the created degree plan and does not include irrelevant electives or overly broad required electives (e.g. science or math).</p>
+        </div>
+      </div>
+      <div action="{% url 'faculties' %}"class="card mb-3" href="{% url 'faculties' %}">
+        <img class="card-img-top" src="{% static 'facultycontact.png' %}" alt="Card image cap">
+        <div class="card-body text-primary">
+          <h5 class="card-title">Falculty Contact</h5>
+          <a href="{% url 'faculties' %}"><span class="badge badge-pill badge-success">Full Access</span></a>
+          <p class="card-text pt-2">If an issue occurs with degree planning and/or semester planning that the system cannot resolve, it will give relevant contact details to the user for speaking with faculty that could help fix the issue. Such issues might include prerequisite waiving, corequisite waiving, graduate courses, and other possible issues with registration.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   {% else %}
   <div class="container">
